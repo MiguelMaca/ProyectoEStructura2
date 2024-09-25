@@ -3,7 +3,7 @@ export class Order {
         public company: string,
         public quantity: number,
         public price: number,
-        public type: 'buy' | 'sell'
+        public type: 'comprar' | 'vender'
     ) {}
 }
 
@@ -71,7 +71,7 @@ export class MinHeap {
     }
 
     extractMin(): Order | null {
-        if (this.heap.length === 0) return null;
+        if (this.heap.length == 0) return null;
         const min = this.heap[0];
         const end = this.heap.pop();
         if (this.heap.length > 0 && end) {
@@ -109,7 +109,7 @@ export class MinHeap {
             if (rightChild < length && this.heap[rightChild].price < this.heap[smallest].price) {
                 smallest = rightChild;
             }
-            if (smallest === index) break;
+            if (smallest == index) break;
 
             [this.heap[index], this.heap[smallest]] = [this.heap[smallest], this.heap[index]];
             index = smallest;
